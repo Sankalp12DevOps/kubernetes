@@ -21,9 +21,9 @@ metadata:
   name: subtlegame
 data:
  MONGOURL : mongodb.roboshop.internal
-REDIS_URL : redis.roboshop.internal
-ENVIRONMENT : dev
-developer   : sankalpkianthaseenledu
+ REDIS_URL : redis.roboshop.internal
+ ENVIRONMENT : dev
+ developer   : sankalpkianthaseenledu
 
 ---
 apiVersion: v1
