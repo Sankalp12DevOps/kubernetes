@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos
+spec:
+  containers:
+  - name: centos
+    image: centos:7
+    command: ["sleep", "15000"]
+    envFrom:  
+     - configMapRef:
+        name : subtlegame
+
+
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subtlegame
+data:
+ MONGOURL : mongodb.roboshop.internal
+REDIS_URL : redis.roboshop.internal
+ENVIRONMENT : dev
+developer   : sankalpkianthaseenledu
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    envFrom:  
+     - configMapRef:
+        name : subtlegame
